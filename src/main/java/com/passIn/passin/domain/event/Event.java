@@ -6,28 +6,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
+@Table(name = "events")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "events")
-
 public class Event {
     @Id
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "title", nullable = false)
+    @Column(nullable = false)
     private String title;
 
-    @Column(name = "details", nullable = false)
+    @Column(nullable = false)
     private String details;
 
-    @Column(name = "slug", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String slug;
 
-    @Column(name="maximum_attendees", nullable = false, unique = true)
+    @Column(nullable = false, name="maximum_attendees")
     private Integer maximumAttendees;
-
 }
